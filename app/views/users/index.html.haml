@@ -1,19 +1,5 @@
-%h1 Listing users
-
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+.col-xs-8#users-content
+  .list-group
+    .list-group-item.user-list
+      %h2 ユーザー一覧
+    = render partial: "users/user", collection: @users

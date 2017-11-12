@@ -34,6 +34,7 @@ gem 'sorcery'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 
+gem 'record_tag_helper'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
