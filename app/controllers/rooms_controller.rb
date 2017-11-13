@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @other_user = User.find_by(nickname: params[:room][:other_user_id])
+    @other_user = User.find_by(screen_name: params[:room][:other_user_id])
 
     if @other_user.nil? || @other_user.id == current_user.id
       flash[:danger] = 'User not found'
