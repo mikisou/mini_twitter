@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'sorcery'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'erb2haml'
 
 gem 'record_tag_helper'
 # Use Capistrano for deployment
