@@ -5,7 +5,7 @@ class CreateFollows < ActiveRecord::Migration[5.1]
       t.integer :inverse_follower_id
 
       t.timestamps
-      
+
       t.index :follower_id
       t.index :inverse_follower_id
     end

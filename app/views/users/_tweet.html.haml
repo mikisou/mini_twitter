@@ -19,3 +19,4 @@
         = link_to "フォロー解除", user_follows_path(t.user), method: :delete
       - else
         = link_to "フォロー", user_follows_path(t.user), method: :post
+      link_to "メッセージ", rooms_path

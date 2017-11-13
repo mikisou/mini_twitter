@@ -10,46 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112121731) do
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "tweet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["created_at"], name: "index_favorites_on_created_at"
-    t.index ["tweet_id"], name: "index_favorites_on_tweet_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
+ActiveRecord::Schema.define(version: 20_171_112_121_731) do
+  create_table 'favorites', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'tweet_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['created_at'], name: 'index_favorites_on_created_at'
+    t.index ['tweet_id'], name: 'index_favorites_on_tweet_id'
+    t.index ['user_id'], name: 'index_favorites_on_user_id'
   end
 
-  create_table "follows", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "inverse_follower_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["follower_id"], name: "index_follows_on_follower_id"
-    t.index ["inverse_follower_id"], name: "index_follows_on_inverse_follower_id"
+  create_table 'follows', force: :cascade do |t|
+    t.integer 'follower_id'
+    t.integer 'inverse_follower_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['follower_id'], name: 'index_follows_on_follower_id'
+    t.index ['inverse_follower_id'], name: 'index_follows_on_inverse_follower_id'
   end
 
-  create_table "tweets", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["created_at"], name: "index_tweets_on_created_at"
-    t.index ["user_id"], name: "index_tweets_on_user_id"
+  create_table 'tweets', force: :cascade do |t|
+    t.integer 'user_id'
+    t.string 'content'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['created_at'], name: 'index_tweets_on_created_at'
+    t.index ['user_id'], name: 'index_tweets_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "crypted_password"
-    t.string "salt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "screen_name"
-    t.string "bio"
-    t.index ["email"], name: "index_users_on_email", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', null: false
+    t.string 'crypted_password'
+    t.string 'salt'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'name'
+    t.string 'screen_name'
+    t.string 'bio'
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
-
 end

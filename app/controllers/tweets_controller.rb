@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :require_login
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :set_tweet, only: %i[show edit update destroy]
 
   # GET /tweets
   # GET /tweets.json
@@ -11,8 +11,7 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1
   # GET /tweets/1.json
-  def show
-  end
+  def show; end
 
   # GET /tweets/new
   def new
@@ -20,8 +19,7 @@ class TweetsController < ApplicationController
   end
 
   # GET /tweets/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tweets
   # POST /tweets.json
@@ -64,20 +62,21 @@ class TweetsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def timeline
     @tweets = Tweet.eager_load(user: :inverse_follows).where(follows: { follower_id: current_user.id })
     @tweet  = Tweet.new
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tweet_params
-      params.require(:tweet).permit(:content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tweet_params
+    params.require(:tweet).permit(:content)
+  end
 end
