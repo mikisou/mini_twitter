@@ -1,5 +1,5 @@
-.col-xs-8#users-content
+#users-content.col-xs-8
   .list-group
     .list-group-item.user-list
       %h2 ユーザー一覧
-    = render partial: "users/user", collection: @users
+    = render 'users/user', collection: @users

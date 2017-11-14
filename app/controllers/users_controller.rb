@@ -2,28 +2,23 @@
 
 class UsersController < ApplicationController
   before_action :require_login
+  before_action :set_user, only: [:show, :favorites, :follows, :followers]
 
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; end
 
-  def favorites
-    @user = User.find(params[:id])
-  end
+  def favorites; end
 
-  def follows
-    @user = User.find(params[:id])
-  end
+  def follows; end
 
-  def followers
+  def followers; end
+
+  private
+
+  def set_user
     @user = User.find(params[:id])
   end
 end
