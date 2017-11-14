@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   resource :registrations, only: [:new, :create]
   resource :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:index, :show] do
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  root to: 'registrations#new'
+  root 'registrations#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

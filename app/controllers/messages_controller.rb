@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
@@ -14,9 +16,7 @@ class MessagesController < ApplicationController
       @messages = @conversation.messages
     end
     if @messages.last
-      if @messages.last.user_id != current_user.id
-        @messages.last.read = true;
-      end
+      @messages.last.read = true if @messages.last.user_id != current_user.id
     end
     @message = @conversation.messages.new
   end
@@ -27,9 +27,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-    if @message.save
-      redirect_to conversation_messages_path(@conversation)
-    end
+    redirect_to conversation_messages_url(@conversation) if @message.save
   end
 
   private

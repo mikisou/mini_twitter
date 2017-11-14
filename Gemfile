@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -30,10 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'sorcery'
-gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'erb2haml'
+gem 'haml-rails'
+gem 'sorcery'
 
 gem 'record_tag_helper'
 # Use Capistrano for deployment
@@ -45,12 +46,34 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  # Step-by-step debugging and stack navigation in Pry
+  gem 'pry-byebug'
+
+  # A Rake task that helps you find dead routes and unused actions
+  gem 'traceroute'
+
+  # Pretty print your Ruby objects with style -- in full color and with proper
+  # indentation
+  gem 'awesome_print'
+
+  # Brakeman is an open source static analysis tool which checks Ruby on Rails
+  # applications for security vulnerabilities.
+  gem 'brakeman', require: false
+
+  # RubyCritic is a gem that wraps around static analysis gems such as Reek,
+  # Flay and Flog to provide a quality report of your Ruby code.
+  gem 'rubycritic', require: false
+
+  # Rubocop takes care of the quality of the code
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
