@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class RegistrationsController < ApplicationController
   def new
     @user = User.new
     redirect_to tweets_url if logged_in?
   end
-  
+
   def create
     @user = User.new(params_user)
-	 
+
     if @user.save
       login(@user.email, @user.password)
-      redirect_to tweets_url
+      redirect_to tweets_url, notice: 'ログインしました'
     else
       render :new
     end

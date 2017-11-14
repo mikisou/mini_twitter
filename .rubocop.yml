@@ -1,0 +1,74 @@
+# This is the default configuration file. Enabling and disabling is configured
+# in separate files. This file adds all other parameters apart from Enabled.
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.4
+  Include:
+    - '**/*.gemspec'
+    - '**/*.rake'
+    - '**/config.ru'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Guardfile'
+  Exclude:
+    - 'bin/**/*'
+    - 'db/migrate/*'
+    - 'db/*schema.rb'
+    - 'doc/**/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'workspace/**/*'
+
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+Rails:
+  Enabled: true
+
+# The project has a soft limit of 80 chars for line length, but up to 100 chars
+# are allowed in some cases.
+Metrics/LineLength:
+  Max: 100
+  AllowHeredoc: true
+  AllowURI: true
+
+# Methods should be short. But sometimes it is not possible.
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 16
+
+Metrics/BlockLength:
+  Enabled: false
+
+# Allow curly braces for blocks that return
+BlockDelimiters:
+  EnforcedStyle: semantic
+
+# Do not enforce documentation for all class definitions
+Documentation:
+  Enabled: false
+
+# Checks that message expectations are set using spies. receive/have_received
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+# Checks that tests use `described_class`.
+RSpec/DescribedClass:
+  EnforcedStyle: described_class
+
+# Array of symbols is more legible than %i()
+Style/SymbolArray:
+  Enabled: false
+
+# The expression `let!` can be useful sometimes.
+RSpec/LetSetup:
+  Enabled: false
+
+# Bug in 0.51.0
+Style/MixinUsage:
+  Enabled: false

@@ -1,5 +1,5 @@
-.col-xs-8#users-content
-  = render partial: "users/header"
+#users-content.col-xs-8
+  = render 'users/header'
   .list-group
     - if @user.favorites.empty?
       .list-group-item

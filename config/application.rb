@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -15,7 +17,7 @@ module MiniTwitter
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :ja
-    
+
     config.sass.preferred_syntax = :sass
   end
 end
