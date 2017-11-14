@@ -66,7 +66,8 @@ class TweetsController < ApplicationController
   end
 
   def timeline
-    @tweets = Tweet.eager_load(user: :inverse_follows).where(follows: { follower_id: current_user.id })
+    @tweets = Tweet.eager_load(user: :inverse_follows)
+                   .where(follows: { follower_id: current_user.id })
     @tweet  = Tweet.new
   end
 

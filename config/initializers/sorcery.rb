@@ -65,7 +65,8 @@ Rails.application.config.sorcery.configure do |config|
   # config.register_last_activity_time =
 
   # -- external --
-  # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack] .
+  # What providers are supported by this app, i.e. [:twitter, :facebook, :github,
+  # :linkedin, :xing, :google, :liveid, :salesforce, :slack] .
   # Default: `[]`
   #
   # config.external_providers =
@@ -133,10 +134,13 @@ Rails.application.config.sorcery.configure do |config|
   # config.google.secret = ""
   # config.google.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=google"
   # config.google.user_info_mapping = {:email => "email", :username => "name"}
-  # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+  # config.google.scope = "https://www.googleapis.com/auth/userinfo.email
+  # https://www.googleapis.com/auth/userinfo.profile"
   #
-  # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
-  # The callback URL "can't contain a query string or invalid special characters", see: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-v2-limitations#restrictions-on-redirect-uris
+  # For Microsoft Graph, the key will be your App ID, and the secret will be your
+  # app password/public key.
+  # The callback URL "can't contain a query string or invalid special characters",
+  # see: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-v2-limitations#restrictions-on-redirect-uris
   # More information at https://graph.microsoft.io/en-us/docs
   #
   # config.microsoft.key = ""
@@ -166,8 +170,9 @@ Rails.application.config.sorcery.configure do |config|
 
   # For information about JIRA API:
   # https://developer.atlassian.com/display/JIRADEV/JIRA+REST+API+Example+-+OAuth+authentication
-  # to obtain the consumer key and the public key you can use the jira-ruby gem https://github.com/sumoheavy/jira-ruby
-  # or run openssl req -x509 -nodes -newkey rsa:1024 -sha1 -keyout rsakey.pem -out rsacert.pem to obtain the public key
+  # to obtain the consumer key and the public key you can use the jira-ruby gem
+  # https://github.com/sumoheavy/jira-ruby or run openssl req -x509 -nodes -newkey
+  # rsa:1024 -sha1 -keyout rsakey.pem -out rsacert.pem to obtain the public key
   # Make sure you have configured the application link properly
 
   # config.jira.key = "1234567"
@@ -179,8 +184,10 @@ Rails.application.config.sorcery.configure do |config|
   # For information about Salesforce API:
   # https://developer.salesforce.com/signup &
   # https://www.salesforce.com/us/developer/docs/api_rest/
-  # Salesforce callback_url must be https. You can run the following to generate self-signed ssl cert
-  # openssl req -new -newkey rsa:2048 -sha1 -days 365 -nodes -x509 -keyout server.key -out server.crt
+  # Salesforce callback_url must be https. You can run the following to generate
+  # self-signed ssl cert
+  # openssl req -new -newkey rsa:2048 -sha1 -days 365 -nodes -x509 -keyout server.key
+  # -out server.crt
   # Make sure you have configured the application link properly
   # config.salesforce.key = '123123'
   # config.salesforce.secret = 'acb123'
@@ -196,7 +203,7 @@ Rails.application.config.sorcery.configure do |config|
     #
     # user.username_attribute_names =
 
-    # change *virtual* password attribute, the one which is used until an encrypted one is generated.
+    # change *virtual* password attribute, the one which is used until an encrypted
     # Default: `:password`
     #
     # user.password_attribute_name =
